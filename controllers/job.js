@@ -1,9 +1,13 @@
-const { db } = require('../firebase')
+const firebaseAdmin = require('../firebase')
+
+const {getFirestore, Timestamp, FieldValue, Filter} = require('firebase-admin/firestore');
+const db = getFirestore();
 
 // POST - Create Job
 exports.job_create_post = async (req, res) => {
     try {
-
+        const jobs = await db.collection('Jobs')
+        await jobs.add(req.body)
     }
     catch (err) {
         console.log(err)
@@ -14,10 +18,10 @@ exports.job_create_post = async (req, res) => {
 // GET - Job index
 exports.job_index_get = async (req, res) => {
     try {
-        const jobs = await db.collection('Jobs').get()
-        // const documents = jobs.docs.map((doc) => doc.data())
-        console.log('Fetching Jobs')
-        res.json(jobs)
+        const jobs = await db.collection('Jobs')
+        const snapshot = await jobs.get()
+
+        res.json(snapshot.docs)
     }
     catch (err) {
         console.log(err)

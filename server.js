@@ -3,6 +3,10 @@ const app = express()
 
 const port = 4000
 
+app.use(express.urlencoded({
+    extended: true
+}))
+
 // Require Route
 const indexRouter = require('./routes/index')
 const jobRouter = require('./routes/job')
