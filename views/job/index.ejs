@@ -1,0 +1,17 @@
+<h3>Jobs</h3>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+    </tr>
+    <% jobsArray.forEach(function(job){ %>
+            <tr>
+            <td><%= job.title %></td>
+            <td><%= job.description %> </td>
+            <td>
+                <button>Favorite</button>
+            </td>
+        </tr>
+    <% }) %>
+</table>

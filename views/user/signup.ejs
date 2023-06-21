@@ -1,0 +1,33 @@
+<h1>Sign Up</h1>
+
+<form action="/user/signup" method="POST">
+    <div>
+        <label>Role</label>
+        <select name="role">
+            <option value="Job Seeker">Job Seeker</option>
+            <option value="Employer">Employer</option>
+        </select>
+    </div>
+
+    <div>
+        <label>First Name</label>
+        <input type="text" name="firstName">
+    </div>
+
+    <div>
+        <label>Last Name</label>
+        <input type="text" name="lastName">
+    </div>
+
+    <div>
+        <label>Email Address</label>
+        <input type="email" name="emailAddress">
+    </div>
+
+    <div>
+        <label>Password</label>
+        <input type="password" name="password">
+    </div>
+
+    <button type="submit">Submit</button>
+</form>

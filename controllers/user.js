@@ -18,6 +18,11 @@ exports.getUsers = async (req, res) => {
     }
 }
 
+// GET - User Sign Up Page
+exports.user_create_get = (req, res) => {
+    res.render('user/signup')
+}
+
 // POST - User Create
 exports.createUser = async (req, res) => {
 
@@ -25,10 +30,30 @@ exports.createUser = async (req, res) => {
         const usersRef = db.collection('Users');
         await usersRef.add(req.body);
 
+        res.redirect('/user/signin')
+
         console.log('user has been created successfully')
     } catch (e) {
-        console.error('Error creating user:', e);
+        res.json({ "message": "Error Creating User"})
         throw new Error('Error creating user');
+    }
+}
+
+// GET - User Sign In page
+exports.user_signin_get = (req, res) => {
+    res.render('user/signin')
+}
+
+// POST - User Signin
+exports.user_signin_post = async (req, res) => {
+    try {
+        const user = await db.collection('Users')
+        const snapshot = await user.where('emailAddress', '==', req.body.emailAddress).get()
+        console.log(snapshot)
+        console.log(req.body.emailAddress)
+    }
+    catch (err) {
+        console.log(err)
     }
 }
 

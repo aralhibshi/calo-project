@@ -20,8 +20,13 @@ exports.job_index_get = async (req, res) => {
     try {
         const jobs = await db.collection('Jobs')
         const snapshot = await jobs.get()
+        const allJobs = snapshot.docs
 
-        res.json(snapshot.docs)
+        const jobsArray = []
+        allJobs.forEach((doc) => {
+            jobsArray.push(doc.data())
+        })
+        res.render('job/index', {jobsArray})
     }
     catch (err) {
         console.log(err)
