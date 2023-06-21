@@ -5,6 +5,6 @@ const router = express.Router()
 const jobCtrl = require('../controllers/job')
 
 // Routes
-router.get('/jobs', jobCtrl.job_create_post)
+router.get('/jobs', jobCtrl.job_index_get)
 
 module.exports = router
