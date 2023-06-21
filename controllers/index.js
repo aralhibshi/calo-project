@@ -1,4 +1,3 @@
-
 var firebaseAdmin = require("../firebase.js");
 
 const {getFirestore, Timestamp, FieldValue, Filter} = require('firebase-admin/firestore');
