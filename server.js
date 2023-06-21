@@ -10,10 +10,14 @@ app.use(express.urlencoded({
 // Require Route
 const indexRouter = require('./routes/index')
 const jobRouter = require('./routes/job')
+const userRouter = require('./routes/user')
+const employerRouter = require('./routes/employer')
 
 // Mount Route
 app.use('/', indexRouter)
 app.use('/', jobRouter)
+app.use('/', userRouter)
+app.use('/', employerRouter)
 
 // Listen
 app.listen(port, function() {
