@@ -5,6 +5,6 @@ const router = express.Router()
 const indexCtrl = require('../controllers/index')
 
 // Routes
-router.get('/', indexCtrl.index_get)
+router.get('/', indexCtrl.getUsers)
 
 module.exports = router
